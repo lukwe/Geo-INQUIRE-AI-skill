@@ -1,8 +1,8 @@
 {
-  "version": "skill-v0.1.0",
+  "version": "skill-v0.1.1",
   "source_commit": "3de26be7c9f7d2cf654ccdea1b3f72cd9d3f9444",
   "source_ref": "origin/main",
-  "promoter_commit": "3513b56a7767bf2e33b6ec6f8821249a39895339",
+  "promoter_commit": "6708987d7305d8acbf3131607bc2eaa64a8e10a0",
   "sha256": {
     ".agents/skills/ogc-geoinquire/SKILL.md": "54166b40cbd52bcaef5263aaf177d29dee83a13241c6eba0d4e6a039e56789f7",
     ".agents/skills/ogc-geoinquire/references/api-overview.md": "9c6be4f5269c36c24803d43306edb192bd3a5e7237c5f7c7617e7fc7ceca04b0",
@@ -10,8 +10,8 @@
     ".agents/skills/ogc-geoinquire/references/process-conduit.md": "d4f9907703e7f39aa85bec75a8e6b84671f9da5b63c7f38c2caccda3eca74747",
     ".agents/skills/ogc-geoinquire/references/process-pybox.md": "f2a93bce7836a6a73554e8ff643ff120d0cadb21f6220f2d2f1de55c29b7dacc",
     ".agents/skills/ogc-geoinquire/references/process-solwcad.md": "7e535874de50a6523883aaab3c5f3a21c4c4aedd63ff354ad0c4a306f12acb95",
-    "CHANGELOG.md": "2307fc89e6852ea0c5f7ffb0f17abb456e3e84f5ac580f18d27dbcc0b1d8b594",
+    "CHANGELOG.md": "80de27fb50fe94582744eac274cad035b538163de2f3fe52aa9297b3e800c134",
     "LICENSE.md": "8c790d9f97d2c136be2370e88f5e1be27cb9b2a17dd7693e4d7d30459690bd24",
-    "README.md": "55c98b8dc7fb8f367de2f59823960cf5cef72f060814e4312449858f8be99307"
+    "README.md": "62762b025747ff606b8fe731fb49b5c2bae71ebd4b9b7a720f290dbb34939357"
   }
 }

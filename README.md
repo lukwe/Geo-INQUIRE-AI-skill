@@ -8,13 +8,21 @@ network access and an HTTP-capable tool such as a terminal with `curl`.
 ## Install
 
 The complete skill is in `.agents/skills/ogc-geoinquire/`. Keep `SKILL.md` and
-its `references/` directory together.
+its `references/` directory together. The folder follows the open
+[Agent Skills specification](https://agentskills.io/specification), so clients
+that support Agent Skills can use the same files without conversion.
 
-- Codex, Cursor, and Gemini CLI: copy that folder to
-  `~/.agents/skills/ogc-geoinquire/` for use across projects, or keep this
-  repository open as the project.
-- Claude Code: copy that folder to `~/.claude/skills/ogc-geoinquire/`, or to
-  `.claude/skills/ogc-geoinquire/` in a project.
+| Client | Install for all local projects | Install in one project |
+| --- | --- | --- |
+| [OpenAI Codex](https://learn.chatgpt.com/docs/build-skills) (CLI or IDE extension) | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
+| [Cursor](https://cursor.com/help/customization/skills) | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
+| [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/) | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
+| [Claude Code](https://code.claude.com/docs/en/skills) | `~/.claude/skills/ogc-geoinquire/` | `.claude/skills/ogc-geoinquire/` |
+
+For Codex, Cursor, and Gemini CLI, the folder is already in the project
+location when you open this repository as your workspace. For Claude Code,
+copy it to one of the Claude Code locations above. OpenAI's ChatGPT desktop app
+also supports standalone skills; check its Skills sidebar after local setup.
 
 For example, on macOS or Linux, from this repository:
 
@@ -23,8 +31,20 @@ mkdir -p ~/.agents/skills
 cp -R .agents/skills/ogc-geoinquire ~/.agents/skills/
 ```
 
-Copy the folder again when you deliberately update to a newer release. Restart
-the client or refresh its skill list if the new version is not visible.
+For Claude Code, replace `~/.agents/skills` in those commands with
+`~/.claude/skills`. On Windows, copy the same complete folder into the client
+location shown by that client's documentation. When updating, select a newer
+tagged release and replace the installed folder deliberately. Restart the
+client or refresh its skill list if the new version is not visible.
+
+### Other agentic IDEs
+
+If your IDE supports Agent Skills, find its documented user or project skill
+directory and place the complete `ogc-geoinquire/` folder there. The standard
+defines the `SKILL.md` and supporting-file layout; each IDE decides where to
+discover skills and how to invoke them. If your IDE does not discover skills,
+you can still point its agent at `SKILL.md` and the bundled `references/`, but
+automatic activation depends on that IDE's capabilities.
 
 ## Use
 
@@ -34,6 +54,11 @@ question. For example:
 > Use ogc-geoinquire to prepare a SOLWCAD request for my measurements. Show the
 > process description, required inputs, units, candidate payload, and any
 > missing or ambiguous values before submitting anything.
+
+To check installation without starting a model run, ask the agent to identify
+the skill and read `references/api-overview.md`, then request the live process
+list. The agent should report SOLWCAD, CONDUIT, and PYBOX without submitting
+an execution request.
 
 The skill requires a preflight review and explicit confirmation before a
 process execution request. It preserves the job ID and raw results or artifact
