@@ -1,5 +1,10 @@
 # Changelog
 
+## skill-v0.1.2
+
+- Listed Visual Studio Code with GitHub Copilot explicitly in the installation
+  table, including its user and project skill locations.
+
 ## skill-v0.1.1
 
 - Expanded installation and first-use instructions for Codex, Cursor, Gemini

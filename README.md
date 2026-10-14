@@ -15,14 +15,17 @@ that support Agent Skills can use the same files without conversion.
 | Client | Install for all local projects | Install in one project |
 | --- | --- | --- |
 | [OpenAI Codex](https://learn.chatgpt.com/docs/build-skills) (CLI or IDE extension) | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
+| [Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/agent-skills) (GitHub Copilot agent) | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
 | [Cursor](https://cursor.com/help/customization/skills) | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
 | [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/) | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
 | [Claude Code](https://code.claude.com/docs/en/skills) | `~/.claude/skills/ogc-geoinquire/` | `.claude/skills/ogc-geoinquire/` |
 
-For Codex, Cursor, and Gemini CLI, the folder is already in the project
-location when you open this repository as your workspace. For Claude Code,
-copy it to one of the Claude Code locations above. OpenAI's ChatGPT desktop app
-also supports standalone skills; check its Skills sidebar after local setup.
+For Codex, VS Code with GitHub Copilot, Cursor, and Gemini CLI, the folder is
+already in the project location when you open this repository as your
+workspace. If you run the Codex extension inside VS Code, use the Codex row.
+For Claude Code, copy it to one of the Claude Code locations above. OpenAI's
+ChatGPT desktop app also supports standalone skills; check its Skills sidebar
+after local setup.
 
 For example, on macOS or Linux, from this repository:
 
