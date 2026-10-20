@@ -1,5 +1,9 @@
 # Changelog
 
+## skill-v0.1.3
+
+- Added a few details claryfing the simple installation process.
+
 ## skill-v0.1.2
 
 - Listed Visual Studio Code with GitHub Copilot explicitly in the installation
