@@ -1,5 +1,11 @@
 # Changelog
 
+## skill-v0.1.4
+
+- Added project and user-wide installation and update instructions for the
+  skills CLI, with its Node.js requirement and telemetry opt-out.
+- Kept tagged manual installation and documented a Git checkout option.
+
 ## skill-v0.1.3
 
 - Added a few details claryfing the simple installation process.

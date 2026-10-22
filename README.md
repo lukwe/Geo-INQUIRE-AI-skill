@@ -7,11 +7,57 @@ network access and an HTTP-capable tool such as a terminal with `curl`.
 
 ## Install
 
-the user only needs to unpack the current release zip file and move it to the correct location as requested by the Agentic IDE he/she is planning to use.
 The complete skill is in `.agents/skills/ogc-geoinquire/`. Keep `SKILL.md` and
 its `references/` directory together. The folder follows the open
 [Agent Skills specification](https://agentskills.io/specification), so clients
-that support Agent Skills can use the same files without conversion. The whole release is based on textual markdown files detailing when and how to use all the end-points of the original remote API. The LLM agent will ingest all the instructions and act accordingly.
+that support Agent Skills can use the same files without conversion. Choose
+one of the installation routes below.
+
+### 1. Quick install with the skills CLI
+
+This route requires [Node.js](https://nodejs.org/en/download) **22.20 or newer**
+and a working `npx` command from npm. Check both before installing:
+
+```sh
+node --version
+npx --version
+```
+
+From the root of the project where you want the skill, run:
+
+```sh
+npx skills add lukwe/Geo-INQUIRE-AI-skill --skill ogc-geoinquire
+```
+
+The [skills CLI](https://github.com/vercel-labs/skills) lets you select the
+agentic clients to install for and uses the current project by default. To make
+the skill available across your projects instead, run:
+
+```sh
+npx skills add lukwe/Geo-INQUIRE-AI-skill --skill ogc-geoinquire -g
+```
+
+To check for updates and update this skill later, run these from the same
+project for a project installation, or use `-g` for a user-wide installation:
+
+```sh
+npx skills check
+npx skills update ogc-geoinquire -p
+```
+
+For a user-wide installation, use `npx skills update ogc-geoinquire -g`.
+The CLI updates from the current repository version. For a research run that
+must use a fixed version, use a tagged release below and record its tag.
+The CLI collects anonymous usage telemetry; set `DISABLE_TELEMETRY=1` when
+running it to opt out. See the CLI's
+[configuration guide](https://github.com/vercel-labs/skills/blob/main/docs/troubleshooting.md).
+
+### 2. Download a tagged release and install manually
+
+Download **Source code (zip)** for a chosen version from this repository's
+[Releases or Tags page](https://github.com/lukwe/Geo-INQUIRE-AI-skill/releases), then
+extract it. Copy the complete nested `.agents/skills/ogc-geoinquire/` folder
+into your client's skill location. This route does not require Node.js.
 
 | Client                                                                                                           | Install for all local projects     | Install in one project           |
 | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------- | -------------------------------- |
@@ -22,7 +68,7 @@ that support Agent Skills can use the same files without conversion. The whole r
 | [Claude Code](https://code.claude.com/docs/en/skills)                                                            | `~/.claude/skills/ogc-geoinquire/` | `.claude/skills/ogc-geoinquire/` |
 
 For Codex, VS Code with GitHub Copilot, Cursor, and Gemini CLI, the folder is
-already in the project location when you open this repository as your
+already in the project location when you open the extracted repository as your
 workspace. If you run the Codex extension inside VS Code, use the Codex row.
 For Claude Code, copy it to one of the Claude Code locations above. OpenAI's
 ChatGPT desktop app also supports standalone skills; check its Skills sidebar
@@ -40,6 +86,30 @@ For Claude Code, replace `~/.agents/skills` in those commands with
 location shown by that client's documentation. When updating, select a newer
 tagged release and replace the installed folder deliberately. Restart the
 client or refresh its skill list if the new version is not visible.
+
+### 3. Keep a Git checkout
+
+If you prefer Git, clone this repository into a separate directory:
+
+```sh
+git clone https://github.com/lukwe/Geo-INQUIRE-AI-skill.git "$HOME/Geo-INQUIRE-AI-skill"
+```
+
+The checkout contains the skill at `.agents/skills/ogc-geoinquire/`. You can
+open the checkout itself as a project for clients that read `.agents/skills/`,
+or copy or link that nested skill folder into a client location in the table
+above. For example, on macOS or Linux, a Claude Code user can keep the clone
+in their home directory and link its skill folder for user-wide access:
+
+```sh
+mkdir -p "$HOME/.claude/skills"
+ln -s "$HOME/Geo-INQUIRE-AI-skill/.agents/skills/ogc-geoinquire" "$HOME/.claude/skills/ogc-geoinquire"
+```
+
+Run `git pull` inside the checkout to update it. A linked installation follows
+the checkout; a copied installation must be copied again after the pull.
+Do not clone the whole repository directly into a client's `ogc-geoinquire/`
+skill folder: `SKILL.md` would remain nested too deeply.
 
 ### Other agentic IDEs
 
