@@ -29,28 +29,23 @@ From the root of the project where you want the skill, run:
 npx skills add lukwe/Geo-INQUIRE-AI-skill --skill ogc-geoinquire
 ```
 
-The [skills CLI](https://github.com/vercel-labs/skills) lets you select the
-agentic clients to install for and uses the current project by default. To make
-the skill available across your projects instead, run:
+The [skills CLI](https://github.com/vercel-labs/skills) lets you select your agentic clients. It installs in the current project by default.
+To install for all your projects, run:
 
 ```sh
 npx skills add lukwe/Geo-INQUIRE-AI-skill --skill ogc-geoinquire -g
 ```
 
-To check for updates and update this skill later, run these from the same
-project for a project installation, or use `-g` for a user-wide installation:
+In the same project, check for updates and install them with:
 
 ```sh
 npx skills check
 npx skills update ogc-geoinquire -p
 ```
 
-For a user-wide installation, use `npx skills update ogc-geoinquire -g`.
-The CLI updates from the current repository version. For a research run that
-must use a fixed version, use a tagged release below and record its tag.
-The CLI collects anonymous usage telemetry; set `DISABLE_TELEMETRY=1` when
-running it to opt out. See the CLI's
-[configuration guide](https://github.com/vercel-labs/skills/blob/main/docs/troubleshooting.md).
+To check or update a user-wide installation, add `-g` to the command. Use `-g` instead of `-p` for `update`.
+The CLI updates from the current repository version. For a fixed research version, use a tagged release and record its tag.
+The CLI collects anonymous usage telemetry. Set `DISABLE_TELEMETRY=1` to opt out. See its [configuration guide](https://github.com/vercel-labs/skills/blob/main/docs/troubleshooting.md).
 
 ### 2. Download a tagged release and install manually
 
@@ -67,12 +62,9 @@ into your client's skill location. This route does not require Node.js.
 | [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/)                                                 | `~/.agents/skills/ogc-geoinquire/` | `.agents/skills/ogc-geoinquire/` |
 | [Claude Code](https://code.claude.com/docs/en/skills)                                                            | `~/.claude/skills/ogc-geoinquire/` | `.claude/skills/ogc-geoinquire/` |
 
-For Codex, VS Code with GitHub Copilot, Cursor, and Gemini CLI, the folder is
-already in the project location when you open the extracted repository as your
-workspace. If you run the Codex extension inside VS Code, use the Codex row.
-For Claude Code, copy it to one of the Claude Code locations above. OpenAI's
-ChatGPT desktop app also supports standalone skills; check its Skills sidebar
-after local setup.
+Open the extracted repository as a project to use the skill in Codex, VS Code with GitHub Copilot, Cursor, or Gemini CLI.
+In VS Code, use the Codex row for the Codex extension. For Claude Code, copy the folder to a Claude Code path above.
+The ChatGPT desktop app also supports standalone skills. Check its Skills sidebar after local setup.
 
 For example, on macOS or Linux, from this repository:
 
@@ -81,11 +73,9 @@ mkdir -p ~/.agents/skills
 cp -R .agents/skills/ogc-geoinquire ~/.agents/skills/
 ```
 
-For Claude Code, replace `~/.agents/skills` in those commands with
-`~/.claude/skills`. On Windows, copy the same complete folder into the client
-location shown by that client's documentation. When updating, select a newer
-tagged release and replace the installed folder deliberately. Restart the
-client or refresh its skill list if the new version is not visible.
+For Claude Code, use `~/.claude/skills` instead of `~/.agents/skills` in the commands above.
+On Windows, use the skill location in your client's documentation. To update, download a newer tagged release and replace the installed folder.
+Restart your client or refresh its skill list if the new version is not visible.
 
 ### 3. Keep a Git checkout
 
@@ -113,42 +103,28 @@ skill folder: `SKILL.md` would remain nested too deeply.
 
 ### Other agentic IDEs
 
-If your IDE supports Agent Skills, find its documented user or project skill
-directory and place the complete `ogc-geoinquire/` folder there. The standard
-defines the `SKILL.md` and supporting-file layout; each IDE decides where to
-discover skills and how to invoke them. If your IDE does not discover skills,
-you can still point its agent at `SKILL.md` and the bundled `references/`, but
-automatic activation depends on that IDE's capabilities.
+If your IDE supports Agent Skills, put the complete `ogc-geoinquire/` folder in its documented project or user skill directory.
+Each IDE chooses where to find skills and how to invoke them. If your IDE does not find skills automatically, point its agent to `SKILL.md` and `references/`.
+Automatic activation depends on the IDE.
 
 ## Use
 
-Select or mention the `ogc-geoinquire` skill in your client and ask a research
-question. For example:
+Select `ogc-geoinquire` and ask a research question. For example:
 
-> Use ogc-geoinquire to prepare a SOLWCAD request for my measurements. Show the
-> process description, required inputs, units, candidate payload, and any
-> missing or ambiguous values before submitting anything.
+> Use ogc-geoinquire to prepare a SOLWCAD request for my measurements. Show the process description, required inputs and units, proposed payload, and missing or ambiguous values. Do not submit it yet.
 
-To check installation without starting a model run, ask the agent to identify
-the skill and read `references/api-overview.md`, then request the live process
-list. The agent should report SOLWCAD, CONDUIT, and PYBOX without submitting
-an execution request.
+To test installation without a model run, ask the agent to read `references/api-overview.md` and list the live processes.
+It should report SOLWCAD, CONDUIT, and PYBOX without submitting an execution request.
 
-The skill requires a preflight review and explicit confirmation before a
-process execution request. It preserves the job ID and raw results or artifact
-links. The agent's ability to follow these instructions depends on the client,
-model, and tool permissions; review the proposed payload before confirming.
+The skill checks inputs and units during preflight. It requires your explicit confirmation before execution. It preserves the job ID and raw results or artifact links.
+The client, model, and tool permissions affect how reliably the agent follows these instructions. Review the proposed payload before you confirm.
 
 ## Releases and provenance
 
-`SOURCE.json` records the approved development commit, the release generator
-commit, and SHA-256 hashes of the distributed files. Use a tagged release when
-reproducibility matters. Record the skill version, client and model, retrieved
-process description, submitted payload, job ID, and raw outputs with your run.
+`SOURCE.json` records the approved development commit, release generator commit, and SHA-256 hashes of the released files.
+For reproducible research, use a tagged release. Record the tag, client, model, retrieved process description, payload, job ID, and raw outputs.
 
-This is a generated release repository. Skill and reference changes originate
-in the development repository and are promoted here after validation. Do not
-edit the distributed skill or references independently in this repository.
+This release comes from the validated development repository.
 
 ## License
 

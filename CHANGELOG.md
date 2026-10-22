@@ -1,5 +1,10 @@
 # Changelog
 
+## skill-v0.1.5
+
+- Shortened approved installation, usage, and provenance text in the public
+  README. The runtime skill is unchanged.
+
 ## skill-v0.1.4
 
 - Added project and user-wide installation and update instructions for the
